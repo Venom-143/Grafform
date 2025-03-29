@@ -16,7 +16,7 @@ resource "grafana_dashboard" "sushant" {
   config_json = jsonencode({
     "dashboard" = {
       "id"        = null
-      "title"     = "giterra Dashboard"
+      "title"     = "Sushant Dashboard"
       "tags"      = ["giii"]
       "timezone"  = "browser"
       "panels"    = [
