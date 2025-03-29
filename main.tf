@@ -35,7 +35,7 @@ resource "grafana_dashboard" "example_dashboard" {
 }
 
 resource "grafana_data_source" "prometheus" {
-  name     = "Prometheus"proxy
+  name     = "Prometheus"
   type     = "prometheus"
   access   = "direct"
   url      = var.prometheus_url
