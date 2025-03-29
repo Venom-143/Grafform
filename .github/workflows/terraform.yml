@@ -1,4 +1,4 @@
-name: Terraform Deployment to Grafana
+name: Terraform Grafana Integration
 
 on:
   push:
@@ -13,26 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Terraform
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: '1.0.0'
 
-      # Install dependencies (if any)
-      - name: Install dependencies
+      - name: Terraform Init
         run: terraform init
 
-      # Run Terraform plan to check for changes
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -var-file=terraform.tfvars
 
-      # Apply Terraform changes to Grafana
       - name: Terraform Apply
-        run: terraform apply -auto-approve
-        env:
-          GRAFANA_API_KEY: ${{ secrets.glsa_sqAdiGhYdt0JGpe51c2DpS5flhjpD41C_4732185b }}
+        run: terraform apply -var-file=terraform.tfvars -auto-approve
+        if: github.ref == 'refs/heads/main'
