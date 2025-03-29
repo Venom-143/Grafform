@@ -12,20 +12,20 @@ provider "grafana" {
   auth  = var.grafana_api_key      # API key to authenticate with Grafana
 }
 
-resource "grafana_dashboard" "example_dashboard" {
+resource "grafana_dashboard" "sushant" {
   config_json = jsonencode({
     "dashboard" = {
       "id"        = null
-      "title"     = "Example Dashboard"
-      "tags"      = ["example"]
+      "title"     = "giterra Dashboard"
+      "tags"      = ["giii"]
       "timezone"  = "browser"
       "panels"    = [
         {
           "type"    = "graph"
-          "title"   = "Example Panel"
+          "title"   = "go pnel"
           "targets" = [
             {
-              "target" = "example_metric"
+              "target" = "go_info"
             }
           ]
         }
