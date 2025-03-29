@@ -2,7 +2,7 @@ terraform {
   required_providers {
     grafana = {
       source = "grafana/grafana"
-      version = "~> 1.11.3"  # Optional: specify the version you want
+      version = "~> 2.0"  # Optional: specify the version you want
     }
   }
 }
