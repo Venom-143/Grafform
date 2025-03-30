@@ -13,14 +13,9 @@ provider "grafana" {
 }
 
 resource "grafana_dashboard" "example_dashboard" {
-  config_json = jsonencode(
-    resource "grafana_dashboard" "test" {
-      folder = grafana_folder.test.uid
-      config_json = jsonencode({
+  config_json = jsonencode({
         "title" : "My Dashboard",
         "uid" : "my-dashboard-uid"
       })
     }
-)
-}
 
