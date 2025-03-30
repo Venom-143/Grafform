@@ -13,24 +13,14 @@ provider "grafana" {
 }
 
 resource "grafana_dashboard" "example_dashboard" {
-  config_json = jsonencode({
-    "dashboard" = {
-      "id"        = null
-      "title"     = "Sushant Dashboard"
-      "tags"      = ["giii"]
-      "timezone"  = "browser"
-      "panels"    = [
-        {
-          "type"    = "graph"
-          "title"   = "go pnel"
-          "targets" = [
-            {
-              "target" = "go_info"
-            }
-          ]
-        }
-      ]
+  config_json = jsonencode(
+    resource "grafana_dashboard" "test" {
+      folder = grafana_folder.test.uid
+      config_json = jsonencode({
+        "title" : "My Dashboard",
+        "uid" : "my-dashboard-uid"
+      })
     }
-  })
+)
 }
 
