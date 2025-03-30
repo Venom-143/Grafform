@@ -12,7 +12,7 @@ provider "grafana" {
   auth  = var.grafana_api_key      # API key to authenticate with Grafana
 }
 
-resource "grafana_dashboard" "sushant" {
+resource "grafana_dashboard" "example_dashboard" {
   config_json = jsonencode({
     "dashboard" = {
       "id"        = null
